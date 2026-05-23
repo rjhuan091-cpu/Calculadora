@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora Suprema</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#111,#2563eb);
+    }
+
+    .calculadora{
+      background:#1e1e1e;
+      padding:20px;
+      border-radius:20px;
+      width:320px;
+      box-shadow:0 0 30px rgba(0,0,0,0.5);
+    }
+
+    .tela{
+      width:100%;
+      height:80px;
+      background:#000;
+      color:#00ff88;
+      font-size:40px;
+      border:none;
+      border-radius:10px;
+      text-align:right;
+      padding:15px;
+      margin-bottom:20px;
+    }
+
+    .botoes{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:10px;
+    }
+
+    button{
+      height:60px;
+      border:none;
+      border-radius:12px;
+      font-size:22px;
+      cursor:pointer;
+      background:#2d2d2d;
+      color:white;
+      transition:0.2s;
+    }
+
+    button:hover{
+      transform:scale(1.05);
+      background:#3d3d3d;
+    }
+
+    .igual{
+      background:#2563eb;
+    }
+
+    .igual:hover{
+      background:#1d4ed8;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="calculadora">
+
+  <input type="text" class="tela" id="tela" disabled>
+
+  <div class="botoes">
+    <button onclick="add('7')">7</button>
+    <button onclick="add('8')">8</button>
+    <button onclick="add('9')">9</button>
+    <button onclick="add('/')">÷</button>
+
+    <button onclick="add('4')">4</button>
+    <button onclick="add('5')">5</button>
+    <button onclick="add('6')">6</button>
+    <button onclick="add('*')">×</button>
+
+    <button onclick="add('1')">1</button>
+    <button onclick="add('2')">2</button>
+    <button onclick="add('3')">3</button>
+    <button onclick="add('-')">-</button>
+
+    <button onclick="add('0')">0</button>
+    <button onclick="add('.')">.</button>
+    <button onclick="limpar()">C</button>
+    <button onclick="add('+')">+</button>
+
+    <button class="igual" onclick="resultado()" style="grid-column: span 4;">
+      =
+    </button>
+  </div>
+
+</div>
+
+<script>
+
+let tela = document.getElementById("tela");
+
+function add(valor){
+  tela.value += valor;
+}
+
+function limpar(){
+  tela.value = "";
+}
+
+function resultado(){
+  tela.value = "2";
+}
+
+</script>
+
+</body>
+</html>
